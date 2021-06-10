@@ -9,7 +9,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ResOrdersWithoutInvoices {
+public class OrdersWithoutInvoicesDto {
 
     private Integer orderId;
     private Date orderDate;

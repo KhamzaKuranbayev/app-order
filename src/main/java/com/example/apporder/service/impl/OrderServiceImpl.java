@@ -2,7 +2,7 @@ package com.example.apporder.service.impl;
 
 import com.example.apporder.dto.ResInvoice;
 import com.example.apporder.dto.ResOrder;
-import com.example.apporder.dto.ResOrdersWithoutInvoices;
+import com.example.apporder.dto.OrdersWithoutInvoicesDto;
 import com.example.apporder.dto.Response;
 import com.example.apporder.entity.Detail;
 import com.example.apporder.entity.Invoice;
@@ -107,7 +107,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Response ordersWithoutInvoices() {
-        List<ResOrdersWithoutInvoices> ordersWithoutInvoices = new ArrayList<>();
+        List<OrdersWithoutInvoicesDto> ordersWithoutInvoices = new ArrayList<>();
 
         List<Order> orderList = orderRepository.findAll();
         List<Integer> ordersByOrderId = orderRepository.getOrdersByOrderId();
@@ -123,7 +123,7 @@ public class OrderServiceImpl implements OrderService {
             if (!orderIds.contains(order.getId())) {
                 return;
             }
-            ordersWithoutInvoices.add(new ResOrdersWithoutInvoices(order.getId(), order.getDate(), listOfDetailsByOrderId, quantityByOrderId));
+            ordersWithoutInvoices.add(new OrdersWithoutInvoicesDto(order.getId(), order.getDate(), listOfDetailsByOrderId, quantityByOrderId));
         });
 
         return new Response("Ok!", true, ordersWithoutInvoices);

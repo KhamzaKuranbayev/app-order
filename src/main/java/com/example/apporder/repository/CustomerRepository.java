@@ -14,4 +14,6 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
             "where (select count(*) from orders where orders.date BETWEEN ?1 AND ?2) = 0 ", nativeQuery = true)
     List<Customer> getAllWithoutOrders(String start, String finish);
 
+    @Query(value = "select c.country from Customer c group by c.country", nativeQuery = true)
+    List<String> getCountryCodes();
 }
