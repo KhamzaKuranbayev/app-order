@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "lombok.equalsAndHashCode.callSuper",
+      "type": "java.lang.String",
+      "description": "Description for lombok.equalsAndHashCode.callSuper."
+    },
+    {
+      "name": "lombok.equalsAndHashCode.callSuper",
+      "type": "java.lang.String",
+      "description": "Description for lombok.equalsAndHashCode.callSuper."
+    }
+  ] }
