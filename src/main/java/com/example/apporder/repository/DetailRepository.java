@@ -13,4 +13,10 @@ public interface DetailRepository extends JpaRepository<Detail, Integer> {
 
     Detail findByOrderId(Integer order_id);
 
+    @Query(value = "select sum(p.price) from Detail d join Product p on p.id=d.product.id where d.order.id= ?1", nativeQuery = true)
+    Double getListOfDetailsByOrderId(Integer orderId);
+
+    @Query(value = "select sum(d.quantity) from  Detail d where d.order.id = ?1", nativeQuery = true)
+    Integer getQuantityByOrderId(Integer id);
+
 }

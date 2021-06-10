@@ -1,7 +1,8 @@
 package com.example.apporder.controller;
 
-import com.example.apporder.dto.ResOrder;
 import com.example.apporder.dto.ResInvoice;
+import com.example.apporder.dto.ResOrder;
+import com.example.apporder.dto.Response;
 import com.example.apporder.entity.Order;
 import com.example.apporder.service.OrderService;
 import org.springframework.web.bind.annotation.*;
@@ -46,7 +47,10 @@ public class OrderController {
         return orderService.getCustomersLastOrder(customerId, name, date);
     }
 
-
+    @GetMapping("/orders_without_invoices")
+    public Response getOrdersWithoutInvoices() {
+        return orderService.ordersWithoutInvoices();
+    }
 
 
 }

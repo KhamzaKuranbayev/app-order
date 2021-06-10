@@ -18,4 +18,10 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
             "where c.id = ?1 and c.name = ?2 and (o.date between ?1 and ?2) LIMIT 1", nativeQuery = true)
     Order getCustomersLastOrder(Integer id, String name, String startDate, String finishDate);
 
+    @Query(value = " select i.order.id from Order o join Invoice  i on i.order.id = o.id  group by i.order.id", nativeQuery = true )
+    List<Integer> getOrdersByOrderId();
+
+    @Query(value = "select d.order.id from Detail d ", nativeQuery = true)
+    List<Integer> listOfOrderIds();
+
 }

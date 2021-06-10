@@ -2,6 +2,7 @@ package com.example.apporder.service;
 
 import com.example.apporder.dto.ResOrder;
 import com.example.apporder.dto.ResInvoice;
+import com.example.apporder.dto.Response;
 import com.example.apporder.entity.Order;
 import org.springframework.stereotype.Service;
 
@@ -18,4 +19,6 @@ public interface OrderService {
     List<Order> getOrdersWithoutDetails(Date date);
 
     Order getCustomersLastOrder(Integer customerId, String name, String date);
+
+    Response ordersWithoutInvoices();
 }

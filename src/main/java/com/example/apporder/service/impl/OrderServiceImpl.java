@@ -2,6 +2,8 @@ package com.example.apporder.service.impl;
 
 import com.example.apporder.dto.ResInvoice;
 import com.example.apporder.dto.ResOrder;
+import com.example.apporder.dto.ResOrdersWithoutInvoices;
+import com.example.apporder.dto.Response;
 import com.example.apporder.entity.Detail;
 import com.example.apporder.entity.Invoice;
 import com.example.apporder.entity.Order;
@@ -12,10 +14,7 @@ import javassist.NotFoundException;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -104,5 +103,30 @@ public class OrderServiceImpl implements OrderService {
         cal.setTime(date);
         cal.add(Calendar.DATE, days); //minus number would decrement the days
         return cal.getTime();
+    }
+
+    @Override
+    public Response ordersWithoutInvoices() {
+        List<ResOrdersWithoutInvoices> ordersWithoutInvoices = new ArrayList<>();
+
+        List<Order> orderList = orderRepository.findAll();
+        List<Integer> ordersByOrderId = orderRepository.getOrdersByOrderId();
+        List<Integer> orderIds = orderRepository.listOfOrderIds();
+        orderList.forEach(order -> {
+            Double listOfDetailsByOrderId;
+            listOfDetailsByOrderId = detailRepository.getListOfDetailsByOrderId(order.getId());
+            Integer quantityByOrderId;
+            quantityByOrderId = detailRepository.getQuantityByOrderId(order.getId());
+            if (ordersByOrderId.contains(order.getId())) {
+                return;
+            }
+            if (!orderIds.contains(order.getId())) {
+                return;
+            }
+            ordersWithoutInvoices.add(new ResOrdersWithoutInvoices(order.getId(), order.getDate(), listOfDetailsByOrderId, quantityByOrderId));
+        });
+
+        return new Response("Ok!", true, ordersWithoutInvoices);
+
     }
 }
