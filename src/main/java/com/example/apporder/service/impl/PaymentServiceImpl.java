@@ -1,6 +1,6 @@
 package com.example.apporder.service.impl;
 
-import com.example.apporder.dto.ResPayment;
+import com.example.apporder.dto.res.ResPayment;
 import com.example.apporder.entity.Invoice;
 import com.example.apporder.entity.Payment;
 import com.example.apporder.repository.InvoiceRepository;
@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Optional;
 
 @Service

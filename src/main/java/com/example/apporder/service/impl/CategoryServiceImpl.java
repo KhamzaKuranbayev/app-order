@@ -1,6 +1,6 @@
 package com.example.apporder.service.impl;
 
-import com.example.apporder.dto.Response;
+import com.example.apporder.dto.res.Response;
 import com.example.apporder.entity.Category;
 import com.example.apporder.repository.CategoryRepository;
 import com.example.apporder.service.CategoryService;

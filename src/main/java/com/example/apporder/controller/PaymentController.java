@@ -1,6 +1,6 @@
 package com.example.apporder.controller;
 
-import com.example.apporder.dto.ResPayment;
+import com.example.apporder.dto.res.ResPayment;
 import com.example.apporder.entity.Payment;
 import com.example.apporder.service.PaymentService;
 import org.springframework.web.bind.annotation.*;

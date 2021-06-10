@@ -1,4 +1,4 @@
-package com.example.apporder.dto;
+package com.example.apporder.dto.res;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

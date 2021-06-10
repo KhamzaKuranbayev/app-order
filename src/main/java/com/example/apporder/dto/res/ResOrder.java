@@ -1,4 +1,4 @@
-package com.example.apporder.dto;
+package com.example.apporder.dto.res;
 
 import com.example.apporder.entity.Order;
 import lombok.AllArgsConstructor;

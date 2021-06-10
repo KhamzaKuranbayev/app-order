@@ -1,9 +1,9 @@
 package com.example.apporder.service.impl;
 
-import com.example.apporder.dto.ResInvoice;
-import com.example.apporder.dto.ResOrder;
+import com.example.apporder.dto.res.ResInvoice;
+import com.example.apporder.dto.res.ResOrder;
 import com.example.apporder.dto.OrdersWithoutInvoicesDto;
-import com.example.apporder.dto.Response;
+import com.example.apporder.dto.res.Response;
 import com.example.apporder.entity.Detail;
 import com.example.apporder.entity.Invoice;
 import com.example.apporder.entity.Order;

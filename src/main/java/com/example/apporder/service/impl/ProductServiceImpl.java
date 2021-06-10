@@ -2,7 +2,7 @@ package com.example.apporder.service.impl;
 
 import com.example.apporder.dto.HighDemandProductsDto;
 import com.example.apporder.dto.OrdersByCountryDto;
-import com.example.apporder.dto.Response;
+import com.example.apporder.dto.res.Response;
 import com.example.apporder.entity.Product;
 import com.example.apporder.repository.CustomerRepository;
 import com.example.apporder.repository.DetailRepository;
